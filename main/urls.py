@@ -1,7 +1,7 @@
 from django.urls import path
-from . import views
+from .views import PostView
 
 urlpatterns = [
-    # Визнач тут свої URL-шляхи
+    path('', PostView.as_view(), name='Posts'),
     
 ]

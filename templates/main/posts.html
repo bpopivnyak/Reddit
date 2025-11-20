@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+<ul class="nav justify-content-center">
+
+    {% for post in posts %}
+        <li class="list-group-item">
+            <div class="card" style="width: 22rem;">
+                <div class="alert alert-light" role="alert">
+                    <span class="badge text-bg-primary">{{ user }}</span>
+                    <a class ="alert-link">{{ post.title }}</a>
+                    <a class ="alert-link">{{ post.media }}</a>
+                </div>
+            </div>
+        </li>
+    {% empty %}
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+        <h1>There are currently no posts</h1>
+    {% endfor %}
+    </li>
+</ul>
+{% endblock %}
