@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+{% load extra_tags %}
+
+    <h1>{{ post.user }}</h1>
+    <h1>{{ post.title }}</h1>
+    <h4>{{ post.description }}</h4>
+    {% if post.media %}
+    <img src="{{ post.media.url }}" class="card-img-top" alt="...">
+    {% endif %}
+
+<div class="comments mt-4">
+<h3>Comments</h3>
+    {% for comment in task.comments.all %}
+        <div class="comment mb-2">
+            <p>{{ comment.content }}</p>
+            {% if comment.media %}
+                <div class="comment-media">
+                    {% if comment.media.url|endswith:".jpg" or comment.media.url|endswith:".png" or comment.media.url|endswith:".jpeg" %}
+                        <img src="{{ comment.media.url }}" alt="Зображення коментаря" style="max-width: 1000px">
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    {% empty %}
+        <p>No Comments :(</p>
+    {% endfor %}
+</div>
+
+{% endblock %}

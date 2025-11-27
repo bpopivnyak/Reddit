@@ -11,7 +11,7 @@ class Role(models.Model):
 class User(AbstractUser):
     role = models.ForeignKey(Role, on_delete=models.CASCADE, blank=True, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
-    profile_image = models.ImageField(blank=True, null=True, upload_to="user_image")
+    profile_image = models.ImageField(upload_to="user_image", blank=True, null=True)
     description = models.CharField(max_length=255, blank=True, null=True)
     rules = models.TextField(blank=True, null=True)
 

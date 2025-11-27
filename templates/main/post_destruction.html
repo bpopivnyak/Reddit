@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h2>Delete</h2>
+    <p>Are you sure?</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="badge text-bg-danger">Yes</button>
+        <a href="{% url 'posts' %}" class="badge text-bg-secondary">No</a>
+    </form>
+</div>
+{% endblock %}

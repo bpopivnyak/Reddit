@@ -5,11 +5,13 @@
 
     {% for post in posts %}
         <li class="list-group-item">
-            <div class="card" style="width: 22rem;">
+            <div class="card" style="width: 50rem;">
                 <div class="alert alert-light" role="alert">
-                    <span class="badge text-bg-primary">{{ user }}</span>
-                    <a class ="alert-link">{{ post.title }}</a>
-                    <a class ="alert-link">{{ post.media }}</a>
+                    <span class="badge text-bg-primary">{{ post.user }}</span>
+                    <a href="{% url 'post-detail' post.pk %}" class="text-decoration-none">{{ post.title }}</a>
+                    {% if post.media %}
+                    <img src="{{ post.media.url }}" class="card-img-top" alt="...">
+                    {% endif %}
                 </div>
             </div>
         </li>
@@ -20,4 +22,5 @@
     {% endfor %}
     </li>
 </ul>
+
 {% endblock %}
