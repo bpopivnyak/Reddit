@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth.models import User
+from .models import User
 
 
 
@@ -18,7 +18,7 @@ class LoginForm(AuthenticationForm):
 class RegisterForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['username', 'password1', 'password2']
+        fields = ['username', 'password1', 'password2', "date_of_birth"]
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -27,3 +27,4 @@ class RegisterForm(UserCreationForm):
 
         self.fields['password1'].widget = forms.PasswordInput(attrs={'class': 'form-control mb-2'})
         self.fields['password2'].widget = forms.PasswordInput(attrs={'class': 'form-control mb-2'})
+        self.fields['date_of_birth'].widget = forms.DateInput(attrs={'class': 'form-control mb-2', 'type': 'date'})

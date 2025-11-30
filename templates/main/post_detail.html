@@ -2,17 +2,24 @@
 {% block content %}
 {% load extra_tags %}
 
-    <span class="badge text-bg-primary">{{ post.user }}</span>
-    <h1>{{ post.title }}</h1>
-    <h4>{{ post.description }}</h4>
-    {% if post.media %}
-    <img src="{{ post.media.url }}" class="card-img-top" alt="...">
-    {% endif %}
+<li class="list-group-item">
+    <div class="card" style="width: 80rem;">
+        <div class="alert alert-light" role="alert">
+            <span class="badge text-bg-primary">{{ post.user }}</span>
+            <h1>{{ post.title }}</h1>
+            <h4>{{ post.description }}</h4>
+            {% if post.media %}
+            <img src="{{ post.media.url }}" class="card-img-top" alt="...">
+            {% endif %}
+        </div>
+    </div>
+</li>
 
 <div class="comments mt-4">
 <h3>Comments</h3>
-    {% for comment in task.comments.all %}
+    {% for comment in post.comments.all %}
         <div class="comment mb-2">
+            <h5>{{ comment.user }}</h5>
             <p>{{ comment.content }}</p>
             {% if comment.media %}
                 <div class="comment-media">
@@ -25,6 +32,14 @@
     {% empty %}
         <p>No Comments :(</p>
     {% endfor %}
+</div>
+
+<div class="add-comment mt-4">
+    <form action="{% url 'post-detail' post.pk %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ comment_form.as_p }}
+        <button type="submit" class="btn btn-success">Post</button>
+    </form>
 </div>
 
 {% endblock %}

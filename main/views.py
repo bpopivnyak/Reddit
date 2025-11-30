@@ -31,8 +31,9 @@ class PostDetail(DetailView):
         if comment_form.is_valid():
             comment = comment_form.save(commit=False)
             comment.user = request.user
+            comment.post = self.get_object()
             comment.save()
-            return redirect('', pk=comment.pk)
+            return redirect('post-detail', pk= self.get_object().pk)
         else:
             pass
 
