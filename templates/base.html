@@ -13,10 +13,25 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+<style>
+    body {
+  margin: 0;
+  background-color: orange;
+  color: white;
+  font-family: Arial;
+}
+</style>
 <body>
 
-     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <a class="navbar-brand" href="/">Головна</a>
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+         <a class="navbar-brand dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" href="/">Головна
+            <span class="visually-hidden">Toggle Dropdown</span>
+         </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">About this site</a></li>
+            <li><a class="dropdown-item" href="#">Chats</a></li>
+            <li><a class="dropdown-item" href="#">Notes</a></li>
+          </ul>
         <a class="btn btn-success" class="btn btn-success" href="{% url 'register' %}">Sign up</a>
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}

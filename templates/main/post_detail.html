@@ -2,7 +2,7 @@
 {% block content %}
 {% load extra_tags %}
 
-    <h1>{{ post.user }}</h1>
+    <span class="badge text-bg-primary">{{ post.user }}</span>
     <h1>{{ post.title }}</h1>
     <h4>{{ post.description }}</h4>
     {% if post.media %}
