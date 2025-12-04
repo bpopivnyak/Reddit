@@ -19,15 +19,19 @@
 <h3>Comments</h3>
     {% for comment in post.comments.all %}
         <div class="comment mb-2">
-            <h5>{{ comment.user }}</h5>
-            <p>{{ comment.content }}</p>
+             <div class="card" style="width: 40rem;">
+                <div class="alert alert-light" role="alert">
+                    <span class="badge text-bg-primary">{{ comment.user }}</span>
+                    <p>{{ comment.content }}</p>
             {% if comment.media %}
                 <div class="comment-media">
                     {% if comment.media.url|endswith:".jpg" or comment.media.url|endswith:".png" or comment.media.url|endswith:".jpeg" %}
                         <img src="{{ comment.media.url }}" alt="Зображення коментаря" style="max-width: 1000px">
                     {% endif %}
                 </div>
+                </div>
             {% endif %}
+             </div>
         </div>
     {% empty %}
         <p>No Comments :(</p>

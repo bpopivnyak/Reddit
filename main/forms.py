@@ -7,6 +7,11 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ['title', 'description', 'media']
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({'class': 'form-control mb-2'})
+
 class CommentsForm(forms.ModelForm):
 
     class Meta:
