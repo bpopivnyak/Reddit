@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h2>Edit note</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_div}}
+        <button type="submit" class="badge text-bg-success">Edit</button>
+        <a href class="badge text-bg-secondary">Go to notes</a>
+    </form>
+</div>
+
+{% endblock %}

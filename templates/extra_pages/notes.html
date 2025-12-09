@@ -1,10 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
 
-</body>
-</html>
+<ul class="nav justify-content-center">
+    <h1>Notes</h1>
+</ul>
+
+<ul class="nav justify-content-center">
+
+    {% for note in notes %}
+
+        <div class="card" style="width: 18rem;">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ notes.title }}</li>
+            <li class="list-group-item">{{ notes.description }}</li>
+          </ul>
+        </div>
+            <button type="submit" class="badge text-bg-warning">Edit</button>
+            <button type="submit" class="badge text-bg-danger">Delete</button>
+        {% endfor %}
+{% endblock %}
