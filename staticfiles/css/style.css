@@ -1,10 +1,48 @@
-$theme-colors: (
-  "primary":    $primary,
-  "secondary":  $secondary,
-  "success":    $success,
-  "info":       $info,
-  "warning":    $warning,
-  "danger":     $danger,
-  "light":      $light,
-  "dark":       $dark
-);
+.profile-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.profile-box {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: #ffb000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: #ccc;
+  border: 8px solid #000;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.username {
+  width: 380px;
+  padding: 15px 20px;
+  background: #fff;
+  border-radius: 20px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.description {
+  width: 380px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 30px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+

@@ -1,11 +1,17 @@
 from django.urls import path
 from .views import PostView, PostDetail, PostCreate, PostDelete
-from extra_pages.views import ProfileDetail
+from extra_pages.views import ProfileDetail, NoteListView, NoteDetailView, NoteCreateView, NoteDeleteView, NoteEditView
 
 urlpatterns = [
     path('', PostView.as_view(), name='posts'),
-    path('<int:pk>/', PostDetail.as_view(), name='post-detail'),
+    path('post/<int:pk>/', PostDetail.as_view(), name='post-detail'),
     path('create/', PostCreate.as_view(), name='post-create'),
     path('delete/<int:pk>/', PostDelete.as_view(), name='post-delete'),
     path('profile/<int:pk>/', ProfileDetail.as_view(), name='profile'),
+    path('notes/', NoteListView.as_view(), name='notes-list'),
+    path('notes/<int:pk>/', NoteDetailView.as_view(), name='note-detail'),
+    path('notes/create/', NoteCreateView.as_view(), name='note-create'),
+    path('notes/delete/<int:pk>/', NoteDeleteView.as_view(), name='note-delete'),
+    path('notes/edit/<int:pk>/', NoteEditView.as_view(), name='note-edit'),
+
 ]

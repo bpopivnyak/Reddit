@@ -32,7 +32,7 @@
             <li><a class="dropdown-item" href="#">Edit profile</a></li>
             <li><a class="dropdown-item" href="#">About this site</a></li>
             <li><a class="dropdown-item" href="#">Chats</a></li>
-            <li><a class="dropdown-item" href="#">Notes</a></li>
+            <li><a class="dropdown-item" href="{% url 'notes-list' %}">Notes</a></li>
           </ul>
         <a class="btn btn-success" class="btn btn-success" href="{% url 'register' %}">Sign up</a>
         <form action="{% url 'logout' %}" method="post">

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import CreateView
 from .models import User, Role
+from extra_pages.models import Profile
 from django.urls import reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.contrib.auth import login
@@ -27,4 +28,6 @@ class RegisterView(CreateView):
 
     def form_valid(self, form):
         form.instance.role = Role.objects.get(name = "Member")
+        user = form.save()
+        profile = Profile.objects.create(user=user)
         return super().form_valid(form)

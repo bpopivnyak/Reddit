@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from extra_pages.models import Profile, Notes
+
+admin.site.register(Profile)
+admin.site.register(Notes)

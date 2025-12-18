@@ -1,5 +1,5 @@
 from django import forms
-from .models import Profile
+from .models import Profile, Notes
 
 class ProfileForm(forms.ModelForm):
 
@@ -13,4 +13,10 @@ class ProfileForm(forms.ModelForm):
             self.fields[field].widget.attrs.update({'class': 'form-control mb-2'})
 
         self.fields['media'].widget = forms.FileInput(attrs={'class': "form-control"})
+
+class NoteForm(forms.ModelForm):
+
+    class Meta:
+        model = Notes
+        fields = ["title", 'description']
 
