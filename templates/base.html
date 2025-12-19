@@ -23,6 +23,8 @@
 </style>
 <body>
 
+    {% block navbar %}
+
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
          <a class="navbar-brand dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false" href="/">Homepage
             <span class="visually-hidden">Toggle Dropdown</span>
@@ -40,6 +42,8 @@
             <button type="submit" class="btn btn-danger">Logout</button>
         </form>
     </nav>
+
+    {% endblock %}
 
     {% include 'menu.html' %}
     <main class="container my-4">

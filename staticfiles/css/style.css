@@ -1,14 +1,16 @@
 .profile-wrapper {
   display: flex;
-  gap: 40px;
   align-items: center;
+  gap: 50px;
+
+  max-width: 1000px;
+  margin: 120px auto 0;
 }
 
 .profile-box {
   width: 260px;
   height: 260px;
   border-radius: 50%;
-  background: #ffb000;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,8 +20,8 @@
   width: 180px;
   height: 180px;
   border-radius: 50%;
-  background: #ccc;
-  border: 8px solid #000;
+  object-fit: cover;
+  border: 10px solid #000;
 }
 
 .user-info {
@@ -29,20 +31,23 @@
 }
 
 .username {
-  width: 380px;
-  padding: 15px 20px;
-  background: #fff;
-  border-radius: 20px;
+  width: 420px;
+  background: white;
+  padding: 15px 25px;
+  border-radius: 25px;
   font-size: 22px;
   font-weight: bold;
 }
 
 .description {
-  width: 380px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 30px;
+  width: 420px;
+  background: white;
+  padding: 25px;
+  border-radius: 35px;
   font-size: 15px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
+.profile-wrapper {
+  border: 5px solid red !important;
+}
