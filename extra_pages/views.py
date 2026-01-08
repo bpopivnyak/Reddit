@@ -21,6 +21,10 @@ class ProfileUpdate(UpdateView):
     form_class = ProfileForm
     success_url = reverse_lazy('profile')
 
+class AboutYourself(DetailView):
+    template_name = "extra_pages/about_us.html"
+    context_object_name = "about_us"
+
 class NoteListView(ListView):
     model = Notes
     template_name = "extra_pages/notes.html"

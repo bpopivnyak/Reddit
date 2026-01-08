@@ -24,3 +24,4 @@ class CommentsForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs.update({'class': 'form-control mb-2'})
+            self.fields['media'].widget = forms.FileInput(attrs={'class': "form-control"})
