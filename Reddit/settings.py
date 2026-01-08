@@ -40,8 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main',
     'accounts',
-    'extra_pages',
-    'channels',
+    'extra_pages'
 ]
 
 MIDDLEWARE = [
@@ -72,7 +71,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Reddit.wsgi.application'
-ASGI_APPLICATION = 'Reddit.asgi.application'
 
 
 

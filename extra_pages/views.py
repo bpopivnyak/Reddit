@@ -39,7 +39,7 @@ class NoteCreateView(LoginRequiredMixin, CreateView):
     model = Notes
     template_name = "extra_pages/notes_form.html"
     form_class = NoteForm
-    success_url = reverse_lazy('notes')
+    success_url = reverse_lazy('notes-list')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
@@ -48,7 +48,7 @@ class NoteCreateView(LoginRequiredMixin, CreateView):
 class NoteDeleteView(DeleteView):
     model = Notes
     template_name = "extra_pages/notes_exploding.html"
-    success_url = reverse_lazy('notes')
+    success_url = reverse_lazy('notes-list')
     context_object_name = 'note'
 
 
@@ -56,5 +56,5 @@ class NoteEditView(UpdateView):
     model = Notes
     template_name = "extra_pages/notes_edit.html"
     form_class = NoteForm
-    success_url = reverse_lazy('notes')
+    success_url = reverse_lazy('notes-list')
     context_object_name = 'note'

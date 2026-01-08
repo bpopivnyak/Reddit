@@ -15,11 +15,11 @@
 
         <div class="card" style="width: 18rem;">
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{ notes.title }}</li>
-            <li class="list-group-item">{{ notes.description }}</li>
+            <li class="list-group-item">{{ note.title }}</li>
+              <a class="stretched-link" href="{% url 'note-detail' note.pk %}"></a>
           </ul>
         </div>
-            <button type="submit" class="badge text-bg-warning">Edit</button>
-            <button type="submit" class="badge text-bg-danger">Delete</button>
+            <a href="{% url 'note-edit' note.pk %}" class="badge btn text-bg-warning">Edit</a>
+            <a href="{% url 'note-delete' note.pk %}" class="badge btn text-bg-danger">Delete</a>
         {% endfor %}
 {% endblock %}
