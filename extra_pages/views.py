@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 
 from . import models
 from .forms import ProfileForm, NoteForm
-from extra_pages.models import Profile, Notes
+from extra_pages.models import Profile, AboutPage, Notes
 
 
 class ProfileDetail(DetailView):
@@ -22,6 +22,7 @@ class ProfileUpdate(UpdateView):
     success_url = reverse_lazy('profile')
 
 class AboutYourself(DetailView):
+    model = AboutPage
     template_name = "extra_pages/about_us.html"
     context_object_name = "about_us"
 

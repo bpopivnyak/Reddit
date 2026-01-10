@@ -9,6 +9,10 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+class AboutPage(models.Model):
+    title = models.CharField(max_length=255)
+    description = models.TextField(null=True, blank=True)
+
 class Notes(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
