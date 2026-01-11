@@ -42,6 +42,7 @@
   position: relative;
   left: 160px;
   top: -80px;
+  text-align: center;
 }
 
 .description {
@@ -55,4 +56,38 @@
   position: relative;
   left: 160px;
   top: -65px;
+}
+
+.navbar {
+  position: relative;
+}
+
+.navbar .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  width: 10px;
+  height: calc(100vh - 56px);
+
+  margin: 0;
+  border-radius: 0;
+  border: none;
+
+  background-color: black;
+}
+
+.navbar .dropdown-item {
+  padding: 15px 25px;
+  font-size: 16px;
+  color: white;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu[data-bs-popper] {
+  left: 0 !important;
+  right: auto !important;
 }
