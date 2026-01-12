@@ -5,7 +5,7 @@
 <li class="list-group-item">
     <div class="card" style="width: 80rem;">
         <div class="alert alert-light" role="alert">
-            <span class="badge text-bg-primary">{{ post.user }}</span>
+            <a class="badge text-bg-primary" href="{% url 'profile' request.user.profile.pk %}">{{ post.user }}</a>
             <h1>{{ post.title }}</h1>
             <h4>{{ post.description }}</h4>
             {% if post.media %}

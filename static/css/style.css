@@ -26,9 +26,10 @@
 }
 
 .user-info {
+  position: relative;
   display: flex;
   flex-direction: column;
-  margin-left: 20px;
+  gap: 20px;
 }
 
 .username {
@@ -75,6 +76,15 @@
   border: none;
 
   background-color: black;
+
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.25s ease;
+}
+
+.navbar .dropdown-menu.show {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .navbar .dropdown-item {
