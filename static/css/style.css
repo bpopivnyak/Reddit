@@ -101,3 +101,27 @@
   left: 0 !important;
   right: auto !important;
 }
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.post-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+.post-menu {
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: black;
+    cursor: pointer;
+    margin-left: 490px;
+}
+
+.post-menu:hover {
+    opacity: 0.7;
+}
