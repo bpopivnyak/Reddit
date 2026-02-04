@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% load extra_tags %}
 
 <ul class="nav justify-content-center">
     <h1>Reddit</h1>
@@ -16,17 +17,30 @@
             <div class="card" style="width: 50rem;">
                 <div class="alert alert-light" role="alert">
                      <div class="post-left">
+                          <div class="dropdown">
                         <a class="badge text-bg-primary" href="{% url 'profile' request.user.profile.pk %}">{{ post.user }}</a>
                         <a href="{% url 'post-detail' post.pk %}" class="text-decoration-none">{{ post.title }}</a>
-                        <div class="dropdown">
-                            <button class="post-menu">⋮</button>
+                        <button class="post-menu">⋮</button>
+                        {% if post.media %}
+                              {% if post.media.url|lower|endswith:".jpg" or post.media.url|lower|endswith:".png" or post.media.url|lower|endswith:".jpeg" or post.media.url|lower|endswith:".gif" %}
 
-                             <div class="dropdown-menu">
-                                <a href="#" class="btn btn-warning">Edit</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
-                    {% if post.media %}
-                    <img src="{{ post.media.url }}" class="card-img-top" alt="...">
-                    {% endif %}
+                              <img src="{{ post.media.url }}" class="card-img-top" alt="...">
+                              {% elif post.media.url|lower|endswith:".mp4" or post.media.url|lower|endswith:".webm" %}
+                                <div class="ratio ratio-16x9 mt-3 rounded shadow-sm overflow-hidden">
+                                    <video controls preload="metadata">
+                                        <source src="{{ post.media.url }}">
+                                    </video>
+                                </div>
+
+                              {% else %}
+                              <div class="alert alert-secondary mt-3">
+                                  Attachment:
+                                    <a href="{{ post.media.url }}" download>
+                                        {{ post.media.name|cut:"posts_media/" }}
+                                    </a>
+                                </div>
+                              {% endif %}
+                        {% endif %}
                              </div>
                         </div>
                      </div>

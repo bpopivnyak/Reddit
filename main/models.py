@@ -1,11 +1,12 @@
 from django.db import models
 from accounts.models import User
+from django.core.validators import FileExtensionValidator
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     title = models.CharField(max_length=255)
     description = models.TextField()
-    media = models.FileField(upload_to="comments_media/", blank=True, null=True)
+    media = models.FileField(upload_to="comments_media/", blank=True, null=True, validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png', 'mp4','webm','zip','rar'])])
 
     def __str__(self):
         return self.title
@@ -15,7 +16,7 @@ class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
-    media = models.FileField(upload_to="comments_media/", blank=True, null=True)
+    media = models.FileField(upload_to="comments_media/", blank=True, null=True,  validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png', 'gif'])])
 
     def __str__(self):
         return self.content
